@@ -1,0 +1,223 @@
+/* src/components/Skills/Skills.css */
+
+@font-face {
+  font-family: 'TT Lakes Test';
+  src: url('/fonts/tt-lakes-neue-trial.demibold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.skills * {
+  font-family: 'TT Lakes Test', monospace !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+.skills {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Decorative code symbols in background */
+.skills::before {
+  content: '<>';
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  font-size: 7rem;
+  color: rgba(96, 165, 250, 0.03);
+  font-family: monospace;
+  transform: rotate(5deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.skills::after {
+  content: '</>';
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  font-size: 7rem;
+  color: rgba(96, 165, 250, 0.03);
+  font-family: monospace;
+  transform: rotate(-5deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Title */
+.section-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+  color: white;
+  font-family: 'TT Lakes Test', 'Arial Black', sans-serif;
+  font-weight: normal;
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: #2563eb;
+  border-radius: 2px;
+}
+
+.skills-subtitle {
+  font-size: 1.1rem;
+  color: #6b7a99;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 1.8rem;
+  margin-bottom: 60px;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+/* ── Outer bordered card ── */
+.skills-grid-outer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Each column ── */
+.skills-category {
+  padding: 28px 22px 32px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.skills-category:last-child {
+  border-right: none;
+}
+
+/* ── Category heading ── */
+.category-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #4a5568;
+  font-family: 'Inter', -apple-system, sans-serif;
+  margin-bottom: 18px;
+}
+
+/* ── Pills container ── */
+.skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Individual pill ── */
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px 6px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: default;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.pill-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.pill-name {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #cbd5e1;
+  font-family: 'Inter', -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── Responsive: 2 columns on tablet ── */
+@media (max-width: 1024px) {
+  .skills-grid-outer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-category:nth-child(2) {
+    border-right: none;
+  }
+
+  .skills-category:nth-child(1),
+  .skills-category:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ── Responsive: 1 column on mobile ── */
+@media (max-width: 640px) {
+  .skills {
+    padding: 70px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .skills-grid-outer {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+
+  .skills-category {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 22px 18px;
+  }
+
+  .skills-category:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
