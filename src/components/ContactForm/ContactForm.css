@@ -8,7 +8,6 @@
   font-display: block;
 }
 
-/* ── Section ─────────────────────────────────────────── */
 .cf-section {
   width: 100%;
   padding: 80px 60px 100px;
@@ -27,7 +26,7 @@
   font-style: normal !important;
 }
 
-/* ── Header row ──────────────────────────────────────── */
+/* ── Header ──────────────────────────────────────────── */
 .cf-head {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -35,8 +34,6 @@
   gap: 0 80px;
   margin-bottom: 56px;
 }
-
-/* .cf-head-left: intentionally no padding — flush to section edge */
 
 .cf-eyebrow {
   display: flex;
@@ -67,7 +64,6 @@
 }
 
 .cf-head-right {
-  /* align intro text to bottom of column, matching base of title */
   align-self: end;
   padding-bottom: 4px;
 }
@@ -80,7 +76,7 @@
   text-align: right;
 }
 
-/* ── Body: form | terminal ────────────────────────────── */
+/* ── Body ────────────────────────────────────────────── */
 .cf-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -88,11 +84,10 @@
   align-items: start;
 }
 
-/* ── Form — zero background, zero border ─────────────── */
+/* ── Form ────────────────────────────────────────────── */
 .cf-left {
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
   padding: 0 !important;
 }
 
@@ -102,7 +97,6 @@
   gap: 22px;
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -158,7 +152,7 @@
   min-height: 112px !important;
 }
 
-/* ── Chips ────────────────────────────────────────────── */
+/* ── Chips ───────────────────────────────────────────── */
 .cf-chips {
   display: flex;
   flex-wrap: wrap;
@@ -174,9 +168,7 @@
   font-size: 0.78rem;
   cursor: pointer;
   transition: border-color 0.18s, color 0.18s;
-  -webkit-appearance: none;
   appearance: none;
-  box-shadow: none !important;
 }
 
 .cf-chip:hover {
@@ -190,7 +182,7 @@
   color: #60a5fa !important;
 }
 
-/* ── Submit ───────────────────────────────────────────── */
+/* ── Submit ──────────────────────────────────────────── */
 .cf-submit {
   align-self: flex-start;
   background: #fff !important;
@@ -202,9 +194,7 @@
   cursor: pointer;
   letter-spacing: 0.03em;
   transition: background 0.2s, transform 0.15s;
-  -webkit-appearance: none;
   appearance: none;
-  box-shadow: none !important;
   margin-top: 4px;
 }
 
@@ -213,7 +203,7 @@
   transform: translateY(-1px);
 }
 
-/* ── Success ──────────────────────────────────────────── */
+/* ── Success ─────────────────────────────────────────── */
 .cf-sent {
   display: flex;
   flex-direction: column;
@@ -227,94 +217,73 @@
 .cf-sent-title { font-size: 1.4rem; color: #fff; margin: 0; }
 .cf-sent-sub   { font-size: 0.86rem; color: #4a5568; margin: 0; }
 
-/* ── Terminal ─────────────────────────────────────────── */
+/* ── Right panel ─────────────────────────────────────── */
 .cf-right {
-  /* Stretch terminal to match form height */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
 
-.cf-terminal {
-  background: #0d0d0d !important;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  overflow: hidden;
-  flex: 1;
+/* Lottie container — controls the size of the animation */
+.cf-lottie-wrap {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1;
+  /* centre it in the column */
+  margin: 0 auto;
+}
+
+.cf-lottie {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Info cards ──────────────────────────────────────── */
+.cf-info-cards {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
-.cf-terminal-bar {
+.cf-info-card {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 11px 16px;
-  background: rgba(255,255,255,0.025) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  flex-shrink: 0;
+  gap: 14px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 14px 18px;
 }
 
-.cf-dot {
-  width: 10px;
-  height: 10px;
+.cf-info-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.cf-dot-red    { background: #ff5f57; }
-.cf-dot-yellow { background: #febc2e; }
-.cf-dot-green  { background: #28c840; }
 
-.cf-terminal-name {
-  font-size: 0.68rem !important;
-  color: #3a4a60;
-  margin-left: 8px;
-  letter-spacing: 0.04em;
-  font-family: monospace !important;
+.cf-info-dot.green { background: #4ade80; }
+.cf-info-dot.blue  { background: #60a5fa; }
+.cf-info-dot.amber { background: #c9a84c; }
+
+.cf-info-title {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  display: block;
+  margin-bottom: 3px;
 }
 
-.cf-terminal-body {
-  padding: 22px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1;
-  /* min-height matches visual weight of the form */
-  min-height: 280px;
+.cf-info-sub {
+  font-size: 0.7rem;
+  color: #4a5568;
+  display: block;
 }
 
-.cf-terminal-line {
-  font-size: 0.8rem !important;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  line-height: 1.45;
-  font-family: monospace !important;
-  letter-spacing: 0.02em;
-}
-
-.cf-terminal-line.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.cf-terminal-foot {
-  padding: 11px 22px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  flex-shrink: 0;
-}
-
-.cf-terminal-badge {
-  font-size: 0.68rem !important;
-  color: #4ade80;
-  letter-spacing: 0.06em;
-  font-family: monospace !important;
-}
-
-/* ── Responsive ───────────────────────────────────────── */
+/* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .cf-section {
-    padding: 70px 40px 90px;
-  }
+  .cf-section { padding: 70px 40px 90px; }
 
   .cf-head,
   .cf-body {
@@ -322,16 +291,12 @@
     gap: 0;
   }
 
-  .cf-head {
-    margin-bottom: 48px;
-    gap: 20px 0;
-  }
-
+  .cf-head { margin-bottom: 48px; gap: 20px 0; }
   .cf-intro { text-align: left; }
-
-  .cf-body { gap: 48px 0; }
-
+  .cf-body  { gap: 48px 0; }
   .cf-title { font-size: 3rem; letter-spacing: -1px; }
+
+  .cf-lottie-wrap { max-width: 220px; }
 }
 
 @media (max-width: 640px) {

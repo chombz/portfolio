@@ -1,5 +1,7 @@
 // src/components/ContactForm/ContactForm.jsx
 import { useState } from 'react';
+import Lottie from 'lottie-react';
+import availableAnim from '../../assets/available-for-work.json';
 import './ContactForm.css';
 
 const services = [
@@ -11,52 +13,8 @@ const services = [
   'Full Stack',
 ];
 
-const terminalLines = [
-  { delay: 0,    text: '> Initializing contact protocol...',  color: '#60a5fa' },
-  { delay: 900,  text: '> Status: Available for work ✓',      color: '#4ade80' },
-  { delay: 1900, text: '> Location: Nairobi, Kenya',           color: '#94a3b8' },
-  { delay: 2900, text: '> Stack: React · Laravel · Node.js',   color: '#94a3b8' },
-  { delay: 3900, text: '> Open to: Remote & On-site',          color: '#94a3b8' },
-  { delay: 4900, text: '> Response time: < 24 hours',          color: '#4ade80' },
-  { delay: 5900, text: '> Awaiting your message..._',          color: '#60a5fa' },
-];
-
-const TerminalPanel = () => {
-  const [visible, setVisible] = useState([]);
-
-  useState(() => {
-    terminalLines.forEach((line, i) => {
-      setTimeout(() => setVisible(prev => [...prev, i]), line.delay);
-    });
-  }, []);
-
-  return (
-    <div className="cf-terminal">
-      <div className="cf-terminal-bar">
-        <span className="cf-dot cf-dot-red" />
-        <span className="cf-dot cf-dot-yellow" />
-        <span className="cf-dot cf-dot-green" />
-        <span className="cf-terminal-name">edwin@portfolio ~ contact</span>
-      </div>
-      <div className="cf-terminal-body">
-        {terminalLines.map((line, i) => (
-          <div
-            key={i}
-            className={`cf-terminal-line${visible.includes(i) ? ' visible' : ''}`}
-            style={{ color: line.color }}
-          >
-            {line.text}
-          </div>
-        ))}
-      </div>
-      <div className="cf-terminal-foot">
-        <span className="cf-terminal-badge">● Open to opportunities</span>
-      </div>
-    </div>
-  );
-};
-
-const ContactForm = () => {
+const ContactForm = () =>
+{
   const [selected, setSelected] = useState([]);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
@@ -69,6 +27,7 @@ const ContactForm = () => {
 
   return (
     <section id="contact" className="cf-section">
+
       {/* ── Header ── */}
       <div className="cf-head">
         <div className="cf-head-left">
@@ -86,6 +45,8 @@ const ContactForm = () => {
 
       {/* ── Body ── */}
       <div className="cf-body">
+
+        {/* ── Form ── */}
         <div className="cf-left">
           {sent ? (
             <div className="cf-sent">
@@ -137,8 +98,44 @@ const ContactForm = () => {
           )}
         </div>
 
+        {/* ── Right panel: Lottie + info cards ── */}
         <div className="cf-right">
-          <TerminalPanel />
+
+          {/* Lottie animation — loops automatically */}
+          <div className="cf-lottie-wrap">
+            <Lottie
+              animationData={availableAnim}
+              loop={true}
+              autoplay={true}
+              className="cf-lottie"
+            />
+          </div>
+
+          {/* Info cards below the animation */}
+          <div className="cf-info-cards">
+            <div className="cf-info-card">
+              <span className="cf-info-dot green" />
+              <div>
+                <span className="cf-info-title">Available for work</span>
+                <span className="cf-info-sub">Remote &amp; On-site · Nairobi, Kenya</span>
+              </div>
+            </div>
+            <div className="cf-info-card">
+              <span className="cf-info-dot blue" />
+              <div>
+                <span className="cf-info-title">Response time</span>
+                <span className="cf-info-sub">Usually within 24 hours</span>
+              </div>
+            </div>
+            <div className="cf-info-card">
+              <span className="cf-info-dot amber" />
+              <div>
+                <span className="cf-info-title">Stack</span>
+                <span className="cf-info-sub">React · Laravel · Node.js · Kotlin</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
