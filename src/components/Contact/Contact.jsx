@@ -2,13 +2,13 @@
 import { useState, useEffect } from 'react';
 import './Contact.css';
 import
-  {
-    SiGithub, SiX, SiInstagram,
-    SiReact, SiNodedotjs, SiLaravel, SiPhp, SiMysql,
-    SiJavascript, SiTypescript, SiKotlin,
-    SiTailwindcss, SiAngular, SiVuedotjs, SiGit, SiPostgresql,
-    SiMongodb, SiVercel,
-  } from 'react-icons/si';
+{
+  SiGithub, SiX, SiInstagram,
+  SiReact, SiNodedotjs, SiLaravel, SiPhp, SiMysql,
+  SiJavascript, SiTypescript, SiKotlin,
+  SiTailwindcss, SiAngular, SiVuedotjs, SiGit, SiPostgresql,
+  SiMongodb, SiVercel,
+} from 'react-icons/si';
 import { FaLinkedin, FaEnvelope, FaFileAlt, FaJava } from 'react-icons/fa';
 
 const projects = [
@@ -114,7 +114,7 @@ const Contact = () => (
         </a>
 
         {/* ── CV — col1, rows 2-4 ── */}
-        <a href="/cv.pdf" className="bento-card bento-cv" target="_blank" rel="noreferrer">
+        <a href="/Edwin_Chomba_CV_Software_Engineer_2026.pdf" className="bento-card bento-cv" target="_blank" rel="noreferrer">
           <div className="cv-anim-bg" aria-hidden="true">
             {[...Array(9)].map((_, i) => <div key={i} className={`cv-line cv-line-${i + 1}`} />)}
             <div className="cv-doc-icon"><FaFileAlt /></div>
