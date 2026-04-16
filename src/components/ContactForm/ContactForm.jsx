@@ -111,31 +111,6 @@ const ContactForm = () =>
             />
           </div>
 
-          {/* Info cards below the animation */}
-          <div className="cf-info-cards">
-            <div className="cf-info-card">
-              <span className="cf-info-dot green" />
-              <div>
-                <span className="cf-info-title">Available for work</span>
-                <span className="cf-info-sub">Remote &amp; On-site · Nairobi, Kenya</span>
-              </div>
-            </div>
-            <div className="cf-info-card">
-              <span className="cf-info-dot blue" />
-              <div>
-                <span className="cf-info-title">Response time</span>
-                <span className="cf-info-sub">Usually within 24 hours</span>
-              </div>
-            </div>
-            <div className="cf-info-card">
-              <span className="cf-info-dot amber" />
-              <div>
-                <span className="cf-info-title">Stack</span>
-                <span className="cf-info-sub">React · Laravel · Node.js · Kotlin</span>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
