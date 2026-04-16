@@ -34,13 +34,6 @@ const ContactForm = () =>
           <p className="cf-eyebrow"><span className="cf-rule" />GET IN TOUCH</p>
           <h2 className="cf-title">LET'S WORK<br />TOGETHER</h2>
         </div>
-        <div className="cf-head-right">
-          <p className="cf-intro">
-            I'm here to help bring your ideas to life. Whether you need a
-            website, app, or just want to chat — let's connect and build
-            something great together.
-          </p>
-        </div>
       </div>
 
       {/* ── Body ── */}
