@@ -35,6 +35,13 @@ const ContactForm = () =>
           <h2 className="cf-title">LET'S WORK<br />TOGETHER</h2>
         </div>
       </div>
+      <div className="cf-head-right">
+        <p className="cf-intro">
+          I'm here to help bring your ideas to life. Whether you need a
+          website, app, or just want to chat — let's connect and build
+          something great together.
+        </p>
+      </div>
 
       {/* ── Body ── */}
       <div className="cf-body">
@@ -106,7 +113,7 @@ const ContactForm = () =>
 
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
