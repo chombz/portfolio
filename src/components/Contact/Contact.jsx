@@ -215,7 +215,7 @@ const Contact = () => (
         </div>
 
         {/* ── X — col3, row 5 ── */}
-        <a href="https://x.com/edwinchomba"
+        <a href="https://x.com/EdwinChomb7293"
           className="bento-card bento-x"
           target="_blank" rel="noreferrer">
           <SiX className="x-logo" />
