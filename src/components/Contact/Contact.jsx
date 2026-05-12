@@ -114,7 +114,7 @@ const Contact = () => (
         </a>
 
         {/* ── CV — col1, rows 2-4 ── */}
-        <a href="/Edwin_Chomba_CV_Software_Engineer_2026.pdf" className="bento-card bento-cv" target="_blank" rel="noreferrer">
+        <a href="/Edwin_Chomba_CV_Software_Developer_2026.pdf" className="bento-card bento-cv" target="_blank" rel="noreferrer">
           <div className="cv-anim-bg" aria-hidden="true">
             {[...Array(9)].map((_, i) => <div key={i} className={`cv-line cv-line-${i + 1}`} />)}
             <div className="cv-doc-icon"><FaFileAlt /></div>
