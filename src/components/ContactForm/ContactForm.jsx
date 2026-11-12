@@ -1,8 +1,9 @@
-// src/components/ContactForm/ContactForm.jsx
 import { useState } from 'react';
 import Lottie from 'lottie-react';
 import availableAnim from '../../assets/available-for-work.json';
 import './ContactForm.css';
+
+const ACCESS_KEY = '7dfd45cd-00e2-4d82-b307-a90075795931';
 
 const services = [
   'Web Development',
@@ -13,17 +14,50 @@ const services = [
   'Full Stack',
 ];
 
-const ContactForm = () =>
-{
+const ContactForm = () => {
   const [selected, setSelected] = useState([]);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | error
   const [sent, setSent] = useState(false);
 
-  const toggle = s =>
-    setSelected(p => p.includes(s) ? p.filter(x => x !== s) : [...p, s]);
+  const toggle = (s) =>
+    setSelected((p) => (p.includes(s) ? p.filter((x) => x !== s) : [...p, s]));
 
-  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = e => { e.preventDefault(); setSent(true); };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    const formData = new FormData();
+    formData.append('access_key', ACCESS_KEY);
+    formData.append('subject', `New portfolio enquiry from ${form.name}`);
+    formData.append('from_name', 'Portfolio Contact Form');
+    formData.append('name', form.name);
+    formData.append('email', form.email);
+    formData.append('message', form.message);
+    formData.append('services', selected.join(', ') || 'Not specified');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setSent(true);
+        setForm({ name: '', email: '', message: '' });
+        setSelected([]);
+        setStatus('idle');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
 
   return (
     <section id="contact" className="cf-section">
@@ -42,7 +76,6 @@ const ContactForm = () =>
           </p>
         </div>
       </div>
-
 
       {/* ── Body ── */}
       <div className="cf-body">
@@ -84,7 +117,7 @@ const ContactForm = () =>
                   What do you need? <span className="cf-star">*</span>
                 </label>
                 <div className="cf-chips">
-                  {services.map(s => (
+                  {services.map((s) => (
                     <button key={s} type="button"
                       className={`cf-chip${selected.includes(s) ? ' active' : ''}`}
                       onClick={() => toggle(s)}>
@@ -94,15 +127,21 @@ const ContactForm = () =>
                 </div>
               </div>
 
-              <button type="submit" className="cf-submit">Send Me</button>
+              {status === 'error' && (
+                <p className="cf-error">
+                  Something went wrong. Email me directly at edwinchombz@gmail.com
+                </p>
+              )}
+
+              <button type="submit" className="cf-submit" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Sending...' : 'Send Me'}
+              </button>
             </form>
           )}
         </div>
 
-        {/* ── Right panel: Lottie + info cards ── */}
+        {/* ── Right panel: Lottie ── */}
         <div className="cf-right">
-
-          {/* Lottie animation — loops automatically */}
           <div className="cf-lottie-wrap">
             <Lottie
               animationData={availableAnim}
@@ -111,10 +150,10 @@ const ContactForm = () =>
               className="cf-lottie"
             />
           </div>
-
         </div>
+
       </div>
-    </section >
+    </section>
   );
 };
 

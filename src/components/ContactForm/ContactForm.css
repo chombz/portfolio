@@ -308,3 +308,15 @@
 @media (max-width: 480px) {
   .cf-title { font-size: 2rem; letter-spacing: 0; }
 }
+
+
+.cf-error {
+  color: #f87171;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.cf-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
