@@ -10,22 +10,21 @@ const About = () => {
           <div className="about-text">
            <p>
               I'm Edwin Chomba, a full-stack developer focused on building
-              practical and reliable web applications. My journey in programming
-              began with frontend development and gradually expanded into backend
-              systems, allowing me to understand how complete applications are
+              practical and web applications. My journey in programming
+              began with frontend development and gradually into backend
+              systems, to understanding how complete applications are
               designed, built, and deployed.
             </p>
             <p>
-              I enjoy solving real problems through software — turning ideas into
-              functional products that are simple to use and thoughtfully
-              structured behind the scenes. My work emphasizes clean code,
-              maintainability, and user experience.
+              I enjoy solving real problems through software, turning ideas into 
+              products that are simple to use.
+              My work emphasizes clean code,
+              maintainability and user experience.
             </p> 
             <p>
-              I approach development as a continuous learning process. Each
-              project strengthens my understanding of systems, architecture,
-              and problem solving, helping me grow into a more capable and
-              well-rounded engineer.
+              I approach development as a continuous learning. Each
+              project strengthens my understanding of systems
+              and problem solving, helping me grow into a well-rounded engineer.
             </p>
           </div>
         </div>

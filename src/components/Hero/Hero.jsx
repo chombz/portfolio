@@ -34,8 +34,8 @@ const Hero = () => {
             </h2>
             
             <p className="hero-tagline debug-tagline">
-              A Web Developer experience specializing in building scalable web solutions. 
-              I focus on delivering software and exceptional user experiences.
+              A Web Developer experience specializing in building web solutions. 
+              I focus on software and user experiences.
             </p>
             
             <div className="hero-buttons debug-buttons">
